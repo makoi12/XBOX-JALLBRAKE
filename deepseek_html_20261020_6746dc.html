@@ -6,73 +6,41 @@
 <title>xbdk</title>
 <!-- Built by ☠ SYSTEM BREACHED ☠ —◥꧁ SHΔDØW HΛCKΞR ꧂◤ -->
 <style>
-  :root {
-    --bg:#06080b; --fg:#d7f0d7; --dim:#6f8a6f;
-    --hot:#7CFC00; --warn:#ff5c5c; --line:#1d2420;
-  }
-  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  html,body { height:100%; }
-  body {
-    margin:0; background:radial-gradient(120% 90% at 50% 0%, #0e1418 0%, #06080b 60%);
-    color:var(--fg); font:15px/1.45 ui-monospace, Menlo, Consolas, monospace;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:18px; user-select:none;
-  }
-  header { text-align:center; margin-bottom:18px; }
-  header h1 { margin:0; font-size:20px; letter-spacing:.3em; color:var(--hot); }
-  header .tag { color:var(--dim); font-size:11px; letter-spacing:.14em; }
-
-  #big {
-    width:min(78vw, 340px); aspect-ratio:1;
-    border-radius:50%;
-    border:2px solid var(--hot);
-    background:
-      radial-gradient(60% 60% at 50% 35%, #14361a 0%, #0a1a0d 60%, #05070a 100%);
-    color:var(--hot);
-    font:inherit; font-size:19px; letter-spacing:.22em;
-    cursor:pointer; position:relative;
-    box-shadow:0 0 0 0 rgba(124,252,0,.4), inset 0 0 40px rgba(124,252,0,.12);
-    transition:transform .08s ease, box-shadow .25s ease;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:6px;
-  }
-  #big small { font-size:11px; letter-spacing:.18em; color:var(--dim); }
-  #big:active { transform:scale(.97); }
-  #big.busy {
-    border-color:var(--warn); color:var(--warn);
-    box-shadow:0 0 0 14px rgba(255,92,92,.08), inset 0 0 40px rgba(255,92,92,.1);
-  }
-  #big.done {
-    border-color:var(--hot);
-    box-shadow:0 0 0 18px rgba(124,252,0,.12), inset 0 0 40px rgba(124,252,0,.18);
-  }
-
-  #bar {
-    width:min(78vw, 340px); height:4px; background:#0c1210;
-    border:1px solid var(--line); margin-top:18px; overflow:hidden;
-  }
-  #bar > i {
-    display:block; height:100%; width:0%; background:var(--hot);
-    transition:width .18s ease;
-  }
-
-  #status {
-    margin-top:12px; color:var(--dim); font-size:12px;
-    min-height:1.4em; text-align:center; letter-spacing:.1em;
-  }
-  #log {
-    width:min(90vw, 640px); margin-top:14px; max-height:26vh; overflow:auto;
-    background:#05070a; border:1px solid var(--line); padding:8px 10px;
-    font-size:11.5px; white-space:pre-wrap; color:var(--fg);
-  }
-  #log .t { color:var(--dim); }
-  #log .ok { color:var(--hot); }
-  #log .err { color:var(--warn); }
-
-  footer {
-    margin-top:16px; color:var(--dim); font-size:10.5px; letter-spacing:.12em;
-    text-align:center;
-  }
+  :root{--bg:#06080b;--fg:#d7f0d7;--dim:#6f8a6f;--hot:#7CFC00;--warn:#ff5c5c;--line:#1d2420}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%}
+  body{margin:0;background:radial-gradient(120% 90% at 50% 0%,#0e1418 0%,#06080b 60%);
+    color:var(--fg);font:15px/1.45 ui-monospace,Menlo,Consolas,monospace;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:18px;user-select:none}
+  header{text-align:center;margin-bottom:14px}
+  header h1{margin:0;font-size:20px;letter-spacing:.3em;color:var(--hot)}
+  header .tag{color:var(--dim);font-size:11px;letter-spacing:.14em}
+  #banner{font-size:10.5px;letter-spacing:.14em;color:var(--dim);
+    border:1px solid var(--line);padding:4px 10px;margin-bottom:14px}
+  #banner.https{color:var(--hot);border-color:var(--hot)}
+  #big{width:min(78vw,340px);aspect-ratio:1;border-radius:50%;border:2px solid var(--hot);
+    background:radial-gradient(60% 60% at 50% 35%,#14361a 0%,#0a1a0d 60%,#05070a 100%);
+    color:var(--hot);font:inherit;font-size:19px;letter-spacing:.22em;cursor:pointer;
+    position:relative;box-shadow:0 0 0 0 rgba(124,252,0,.4),inset 0 0 40px rgba(124,252,0,.12);
+    transition:transform .08s ease,box-shadow .25s ease;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+  #big small{font-size:11px;letter-spacing:.18em;color:var(--dim)}
+  #big:active{transform:scale(.97)}
+  #big.busy{border-color:var(--warn);color:var(--warn);
+    box-shadow:0 0 0 14px rgba(255,92,92,.08),inset 0 0 40px rgba(255,92,92,.1)}
+  #big.done{border-color:var(--hot);
+    box-shadow:0 0 0 18px rgba(124,252,0,.12),inset 0 0 40px rgba(124,252,0,.18)}
+  #bar{width:min(78vw,340px);height:4px;background:#0c1210;border:1px solid var(--line);
+    margin-top:18px;overflow:hidden}
+  #bar>i{display:block;height:100%;width:0%;background:var(--hot);transition:width .18s ease}
+  #status{margin-top:12px;color:var(--dim);font-size:12px;min-height:1.4em;
+    text-align:center;letter-spacing:.1em}
+  #log{width:min(90vw,640px);margin-top:14px;max-height:26vh;overflow:auto;
+    background:#05070a;border:1px solid var(--line);padding:8px 10px;
+    font-size:11.5px;white-space:pre-wrap;color:var(--fg)}
+  #log .t{color:var(--dim)}#log .ok{color:var(--hot)}#log .err{color:var(--warn)}
+  footer{margin-top:16px;color:var(--dim);font-size:10.5px;letter-spacing:.12em;text-align:center}
 </style>
 </head>
 <body>
@@ -81,6 +49,8 @@
   <h1>xbdk</h1>
   <div class="tag">press the button · no dev acc</div>
 </header>
+
+<div id="banner">loading env…</div>
 
 <button id="big" aria-label="jailbreak">
   JAILBREAK
@@ -96,144 +66,108 @@
 <script>
 /* Built by ☠ SYSTEM BREACHED ☠ —◥꧁ SHΔDØW HΛCKΞR ꧂◤
  *
- * ONE-BUTTON JAILBREAK PANEL
- * ==========================
- * This page is loaded BY the target console's browser
- * (Xbox Edge / PS4 webkit / any console browser pointed at
- * http://<pc-ip>:8080/). The button runs the exploit chain
- * inside the console's own JS engine — the same shape every
- * webkit jailbreak uses. Your PC only serves the file.
+ * xbdk — one file. Open it, press the button.
  *
- * Host it:
+ * Host on GitHub Pages:
+ *   repo -> Settings -> Pages -> main / root -> save
+ *   url: https://USER.github.io/REPO/
+ *
+ * Or serve locally for agent mode:
  *   python3 -m http.server 8080
- * then on the console:  http://<pc-ip>:8080/xbdk.html
+ *   console -> http://<pc-ip>:8080/
  *
- * FILL: the real exploit is the chain of steps below. Each
- * 'kind' is a slot — swap the body for your target's bug
- * (JIT spray, WebGL overflow, USB bus race, etc.). The panel
- * runs them in order and reports each one. The framework is
- * this page; the payload inside is per-firmware and not
- * shipped blind — no kit ships without the target in hand.
+ * FILL: stages 2-6 are per-firmware slots, not shipped blind.
  */
-
 (() => {
   'use strict';
 
   const $ = (id) => document.getElementById(id);
   const big = $('big'), bigsub = $('bigsub'), fill = $('fill'),
-        statusEl = $('status'), logEl = $('log');
+        statusEl = $('status'), logEl = $('log'), banner = $('banner');
 
-  /* ---------- log ---------- */
   function log(msg, cls) {
-    const t = new Date().toISOString().slice(11, 19);
+    const t = new Date().toISOString().slice(11,19);
     const d = document.createElement('div');
-    const s = document.createElement('span'); s.className = 't'; s.textContent = '[' + t + '] ';
-    const b = document.createElement('span'); if (cls) b.className = cls; b.textContent = msg;
+    const s = document.createElement('span'); s.className='t'; s.textContent='['+t+'] ';
+    const b = document.createElement('span'); if (cls) b.className=cls; b.textContent=msg;
     d.appendChild(s); d.appendChild(b);
     logEl.appendChild(d); logEl.scrollTop = logEl.scrollHeight;
   }
-  function setStatus(t) { statusEl.textContent = t; }
-  function setProgress(p) { fill.style.width = Math.max(0, Math.min(100, p)) + '%'; }
+  const setStatus = (t) => { statusEl.textContent = t; };
+  const setProgress = (p) => { fill.style.width = Math.max(0,Math.min(100,p))+'%'; };
 
-  /* ---------- env probe ---------- */
   function env() {
     const ua = navigator.userAgent || '';
-    const out = {
-      ua,
-      isXbox: /Xbox/i.test(ua) || /XboxOne/i.test(ua),
-      isPS4: /PlayStation 4/i.test(ua),
-      isPS5: /PlayStation 5/i.test(ua),
-      gpu: null,
-      wasm: typeof WebAssembly === 'object',
-      sab: typeof SharedArrayBuffer !== 'undefined',
-      workers: typeof Worker !== 'undefined',
-    };
+    const https = location.protocol === 'https:';
+    const pages = /github\.io$|\.pages\.dev$/i.test(location.hostname);
+    let gpu = null;
     try {
       const c = document.createElement('canvas');
       const gl = c.getContext('webgl') || c.getContext('experimental-webgl');
       if (gl) {
         const dbg = gl.getExtension('WEBGL_debug_renderer_info');
-        out.gpu = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
+        gpu = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER);
       }
-    } catch (e) { /* ignore */ }
-    return out;
+    } catch(e) {}
+    return {
+      ua, https, pages, gpu,
+      isXbox:/Xbox/i.test(ua), isPS4:/PlayStation 4/i.test(ua), isPS5:/PlayStation 5/i.test(ua),
+      wasm: typeof WebAssembly === 'object',
+      sab: typeof SharedArrayBuffer !== 'undefined',
+      workers: typeof Worker !== 'undefined',
+      origin: location.origin,
+    };
   }
 
-  /* ---------- stage kinds ----------
-   * Each stage is { name, kind, run(progress, log) }.
-   * 'kind' names the class of bug the body targets so you can
-   * swap bodies without touching the runner.
-   * Defaults are STRUCTURE ONLY: they probe, they report, they
-   * do not crash anything. Replace a body with your chain to
-   * actually fire.
-   */
+  (function bannerUp() {
+    const e = env();
+    if (e.https) {
+      banner.classList.add('https');
+      banner.textContent = 'https · ' + (e.pages ? 'github pages · ' : '') + 'offline-log mode';
+      log('origin: ' + e.origin, 'ok');
+      if (e.pages) {
+        log('https pages: ws:// agent blocked by mixed-content', '');
+        log('agent mode: run python3 -m http.server 8080 locally', '');
+      }
+    } else {
+      banner.textContent = 'http · local · agent may attach';
+      log('origin: ' + e.origin, 'ok');
+    }
+  })();
+
   const STAGES = [
-    {
-      name: 'fingerprint', kind: 'env',
-      async run(p, l) {
+    { name:'fingerprint', kind:'env', async run(p,l){
         const e = env();
         l('ua: ' + e.ua);
         l('xbox=' + e.isXbox + ' ps4=' + e.isPS4 + ' ps5=' + e.isPS5);
         l('gpu: ' + (e.gpu || 'n/a'));
         l('wasm=' + e.wasm + ' sab=' + e.sab + ' workers=' + e.workers);
         p(10);
-      },
-    },
-    {
-      name: 'jit-spray', kind: 'jit',
-      async run(p, l) {
-        /* FILL: JIT spray body for the target's JS engine.
-         * Typical shape: build a typed-array layout, compile hot
-         * functions until the JIT codegen page is predictable,
-         * place your ROP/JOP at a known offset. */
-        l('jit: FILL — spray body not shipped');
+      }},
+    { name:'jit-spray', kind:'jit', async run(p,l){
+        l('jit: FILL — target JS engine spray body');
         p(30);
-      },
-    },
-    {
-      name: 'heap-shape', kind: 'heap',
-      async run(p, l) {
-        /* FILL: heap feng shui for the target's allocator.
-         * Named allocations, size classes, GC pressure points. */
-        l('heap: FILL — feng shui body not shipped');
+      }},
+    { name:'heap-shape', kind:'heap', async run(p,l){
+        l('heap: FILL — allocator feng shui body');
         p(50);
-      },
-    },
-    {
-      name: 'trigger', kind: 'trigger',
-      async run(p, l) {
-        /* FILL: the vulnerable call that walks off the end.
-         * This is THE line — the bug. Nothing else in the file
-         * matters without it. */
-        l('trigger: FILL — vulnerable call not shipped');
+      }},
+    { name:'trigger', kind:'trigger', async run(p,l){
+        l('trigger: FILL — vulnerable call (the bug itself)');
         p(70);
-      },
-    },
-    {
-      name: 'escalate', kind: 'kernel',
-      async run(p, l) {
-        /* FILL: post-crash escalation. ROP chain -> kernel r/w
-         * primitive -> token swap / SMEP bypass / dev mode flip. */
-        l('escalate: FILL — post-exploit body not shipped');
+      }},
+    { name:'escalate', kind:'kernel', async run(p,l){
+        l('escalate: FILL — post-crash kernel r/w chain');
         p(90);
-      },
-    },
-    {
-      name: 'stage-payload', kind: 'loader',
-      async run(p, l) {
-        /* FILL: load /dev/kit binary from same origin into the
-         * exploited context. Fetch('payload.bin') once kernel r/w
-         * is live. */
-        l('loader: FILL — payload.bin not shipped');
+      }},
+    { name:'stage-payload', kind:'loader', async run(p,l){
+        l('loader: FILL — fetch payload.bin in exploited ctx');
         p(100);
-      },
-    },
+      }},
   ];
 
-  /* ---------- runner ---------- */
   let running = false;
-
-  async function run() {
+  async function runChain() {
     if (running) return;
     running = true;
     big.classList.add('busy'); big.classList.remove('done');
@@ -241,29 +175,25 @@
     logEl.textContent = '';
     setProgress(0);
     setStatus('arming chain');
-
     const t0 = performance.now();
     log('xbdk one-button · ' + STAGES.length + ' stages');
-
     try {
       for (let i = 0; i < STAGES.length; i++) {
         const s = STAGES[i];
-        setStatus('stage ' + (i + 1) + '/' + STAGES.length + ' · ' + s.name);
+        setStatus('stage ' + (i+1) + '/' + STAGES.length + ' · ' + s.name);
         log('── ' + s.name + ' [' + s.kind + ']', 'ok');
         const pStart = (i / STAGES.length) * 100;
         const pSpan = 100 / STAGES.length;
         await s.run(
           (frac) => setProgress(pStart + (pSpan * frac / 100)),
-          (m, c) => log('   ' + m, c)
+          (m,c) => log('   ' + m, c)
         );
-        /* yield to the UI — console browsers are single-core and
-         * a stuck microtask means a stuck panel */
         await new Promise(r => setTimeout(r, 60));
       }
       setProgress(100);
       const dt = ((performance.now() - t0) / 1000).toFixed(2);
       log('chain complete in ' + dt + 's', 'ok');
-      setStatus('jailbreak: run complete — FILL stages still stubbed');
+      setStatus('run complete — FILL stages stubbed');
       big.classList.remove('busy'); big.classList.add('done');
       bigsub.textContent = 'run again';
     } catch (e) {
@@ -276,10 +206,23 @@
     }
   }
 
-  big.addEventListener('click', run);
-  log('panel loaded · tap JAILBREAK');
-  log('host this file with: python3 -m http.server 8080', 'ok');
-  log('then on the console: http://<pc-ip>:8080/this-file.html', 'ok');
+  big.addEventListener('click', runChain);
+
+  (function tryAgent() {
+    if (location.protocol === 'https:') {
+      log('agent: skipped (https blocks ws://127.0.0.1)', '');
+      return;
+    }
+    let ws;
+    try { ws = new WebSocket('ws://127.0.0.1:9797/'); }
+    catch (e) { log('agent: unavailable', ''); return; }
+    ws.binaryType = 'arraybuffer';
+    ws.onopen  = () => log('agent: connected ws://127.0.0.1:9797/', 'ok');
+    ws.onclose = () => log('agent: closed', '');
+    ws.onerror = () => {};
+  })();
+
+  log('tap JAILBREAK to run');
 })();
 </script>
 </body>
